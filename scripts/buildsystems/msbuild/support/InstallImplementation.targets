@@ -2,9 +2,9 @@
   <Import Project="$(MSBuildThisFileDirectory)\RestoreEnvVars.task" />
   <Target Name="VcpkgInstallImplementation">
     <PropertyGroup>
-      <_ZVcpkgInstalledDir>$([MSBuild]::EnsureTrailingSlash('$(_ZVcpkgInstalledDir)'))</_ZVcpkgInstalledDir>
-      <_ZVcpkgRoot>$([MSBuild]::EnsureTrailingSlash('$(_ZVcpkgRoot)'))</_ZVcpkgRoot>
-      <_ZVcpkgManifestRoot>$([MSBuild]::EnsureTrailingSlash('$(_ZVcpkgManifestRoot)'))</_ZVcpkgManifestRoot>
+      <_ZVcpkgInstalledDir>$([MSBuild]::EnsureTrailingSlash('$(_ZVcpkgInstalledDir)').TrimEnd('\'))</_ZVcpkgInstalledDir>
+      <_ZVcpkgRoot>$([MSBuild]::EnsureTrailingSlash('$(_ZVcpkgRoot)').TrimEnd('\'))</_ZVcpkgRoot>
+      <_ZVcpkgManifestRoot>$([MSBuild]::EnsureTrailingSlash('$(_ZVcpkgManifestRoot)').TrimEnd('\'))</_ZVcpkgManifestRoot>
     </PropertyGroup>
 
     <Message Text="Installing vcpkg dependencies to $(_ZVcpkgInstalledDir)" Importance="High" />
